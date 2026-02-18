@@ -20,9 +20,16 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+app.UseStaticFiles();
+
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Main}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Home}/{action=Main}/{id?}",
+    defaults: new { area = "Public" })
     .WithStaticAssets();
 
 

@@ -68,3 +68,9 @@ GIT COMMIT (Procedure) ---------------------------------------------------------
         git branch -M main
 
         git push -u origin main
+
+
+
+TO-DO 
+
+    Clean the project
