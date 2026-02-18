@@ -73,4 +73,8 @@ GIT COMMIT (Procedure) ---------------------------------------------------------
 
 TO-DO 
 
-    Clean the project
+    Clean the project -- DONE 
+
+    Create the boilerplate for public.css 
+
+    move the img and icons

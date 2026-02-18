@@ -1,8 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-html {
-  font-family: "Inter", sans-serif;
-  font-size: 32px;
-  margin: 0;
-  padding: o;
+:root {
+  --black-h: 0;
+  --black-s: 0%;
+  --black-l: 0%;
+  --black-a: 1;
+
+  --white-h: 0;
+  --white-s: 0%;
+  --white-l: 100%;
+
+  --primary-h: 205;
+  --primary-s: 100%;
+  --primary-l: 40%;
+
+  --secondary-h: 210;
+  --secondary-s: 20%;
+  --secondary-l: 15%;
+
+  --accent-h: 50;
+  --accent-s: 95%;
+  --accent-l: 60%;
+  
+  --decrease-h: 0;
+  --decrease-s: 75%;
+  --decrease-l: 60%;
+
+  --increase-h: 150;
+  --increase-s: 35%;
+  --increase-l: 50%;
+
+  --black: hsla(var(--black-h), var(--black-s), var(--black-l), var(--black-a));
+  --black-muted-bg: hsla(var(--black-h), var(--black-s), var(--black-l), calc(var(--black-a) - 0.65));
+  --black-shadow-color: hsla(var(--black-h), var(--black-s), var(--black-l), calc(var(--black-a) - 0.95));
+  --white: hsl(var(--white-h), var(--white-s), var(--white-l));
+  --white-muted-bg: hsl(var(--white-h), var(--white-s), calc(var(--white-l) - 5% ));
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-muted-bg: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 55%));
+  --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+  --secondary-muted: hsl(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + 10%));
+  --accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --accent-muted-bg: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
+  --decrease: hsl(var(--decrease-h), var(--decrease-s), var(--decrease-l));
+  --increase: hsl(var(--increase-h), var(--increase-s), var(--increase-l));
+
+  /* THIS IS BASED ON THE `font-size: 16px;` in `html{}`. wherein, 1rem == 16px  */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-7: 2rem; /* 32px */
+
+  --body-sm: 0.875rem; /* 14px */
+  --body-md: 1rem; /* 16px */
+  --body-lg: 1.25rem; /* 20px */
+  --body-xl: 1.5rem; /* 24px */
+  --heading: 2rem; /* 32px */
+
+  /* USE!!! Clamp() function for section-title, section-subtitle, hero-heading, and hero-subheading */
+  --section-title: 2.25rem; /* 36px */
+  --section-subtitle: 1.25rem; /* 20px */
+
+  --hero-heading: 2.5rem; /* 40px */
+  --hero-subheading: 2rem; /* 32px */
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  --radius-md: 10px;
+  --radius-full: 9999px;
+
+  --button-radius: var(--radius);
+
+  --box-shadow: 0px 0px 10px 5px var(--black-shadow-color);
+
+  --border: 1px solid var(--secondary);
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+}
+
+p, span, button, input {
+  color: var(--secondary);
+}
+
+button {
+  font-size: var(--body-md);
+  font-family: "Inter", sans-serif;
+  padding: var(--space-2) var(--space-4);
+  border: var(--border);
+  border-radius: var(--radius-md);
+}
+
+input {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: var(--border);
+  font-size: var(--body-md);
+}
+

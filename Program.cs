@@ -22,6 +22,7 @@ app.MapStaticAssets();
 
 app.UseStaticFiles();
 
+// THIS HANDLE THE AREAS ROUTING
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Main}/{id?}");
