@@ -1,0 +1,165 @@
+[Contribution guidelines]
+
+Commit guidelines ------------------------------------------------------------------------------------------------------
+
+Semantic Commit Message -- Use a format to properly organize commit history and 
+			   helps others understand each commit.
+
+FORMAT:
+	
+	<type>(<scope>): <subject>
+
+	NOTE!!! <scope> is optional.
+
+	[optional body]
+
+	[optional footer(s)]
+
+	EXAMPLE:
+	
+		feat(front-page): change color theme 
+
+			NOTE!!! Always use present tense on the <subject>
+
+		I have changed the buttons, text, and background images.
+
+		BREAKING CHANGE: Removed the old theme.
+		Fixes: #1 
+		Co-authored-by: Migz Reyes <migzreyes@gmail.com>
+
+	NOTE!!! Using a footer is better if you use the Conventional Commit Extension on VSCode, because it will automate
+		your commit semantic version (1.0.0) and removes fixes on your github repository. 
+		(For further info. check Conventional Commit page).
+	
+	NOTE!!! Breaking change is used when the commit contains a code that introduces a problem on old code. 
+		(ex. v2.0.0 changed an existing feature that works on v1.0.0, that v1.0.0 wont work on v2.0.0 ).
+
+		EXAMPLE:
+			
+			If you use a mod on Minecraft that is supported on 1.19 it is possible that in the next update 1.20
+			your mod will not work.
+
+	NOTE!!! Fixes: or Closes: is used to close or remove the "issue" in your github repository. Your project issues can be
+		viewed on your github repository next to "<> Code" on the navbar.
+
+	NOTE!!! Use co-authored-by: if you have a colleague or someone that helped you add a feature, fix a bug, etc.  
+
+	
+TYPES:
+
+	feat: -- New feature such as adding a new function, changing the overall theme, adding a new folder or files, anything
+		that is new. 
+
+    chore: -- Commited a must do feature
+
+	fix: -- Bug fix.
+
+	docs: -- Changed the documentation.
+
+	refactor: -- Refactoring production code (ex. renaming variables, files, folders, functions, etc).
+
+	style: -- Used for fixing the format or the indentation of your code or comments without affecting the output 
+		  of your function or whole application. (ex. fixing how you write comments, moving variables, fixing the
+		  layout of your project structure, etc).
+
+	
+	
+	
+Semantic Versioning (SemVer) ----------------------------------------------------------------------------------------------------
+
+NOTE!!! Other companies like minecraft does not follow semantic versioning, but it also has the same format.
+
+Semantic Versioning -- It is use to properly organize and keep track of the major, minor, and patches made on the project.
+
+	EXAMPLE:
+
+		Node.js v18.17.1 
+
+Backward Compatibility -- Is when the existing code still works on a new minor update.
+
+Forward Compatibility -- Is when a new library or a package that is built for a newer version that avoids functions or features
+			that will only work on the newer version, so that it can also run on older version.
+
+	NOTE!!! Forward and Backward compatibility is common on minor update and not major updates.
+
+FORMAT:
+
+	MAJOR.MINOR.PATCH --> 1.0.0
+
+	MAJOR -- It is incremented when you added a breaking change feature to your project.
+
+		Breaking Change -- If you modify, remove, or added a new feature that can break your legacy or old code.
+
+			EXAMPLE:
+				
+				A Minecraft mod that is working on v1.19 might not work on v1.20
+
+	MINOR -- It is incremented when you modify, remove, or add a new feature that does not affect or break legacy or old code.
+
+		EXAMPLE:
+
+			You added a new section on your website without breaking the responsiveness of other existing sections.
+		
+			You changed the overall theme of your website.
+
+			You added a database without requiring user to re-create their account.
+
+			You created a new function that does not break legacy or existing code.
+	
+	PATCH -- It is incremented if you fix a bug, fix the UI/Layout, added a new comment, moved variables, functions, and
+		 methods for clear logic and organized structure that wont break your code.
+
+
+	NOTE!!! Increment major if you modify, remove, or add a new feature or code that can break old code, 
+		increment minor if you modify, remove, or add a new feature that does not break old code,
+		and increment patch if you fix a bug, added a new comment, organize your code structure, fix UI/Layout,
+		and a lot more that just fix, remove, modify, and add a line of code or a file that contribute to overall
+		cleanliness and readability of your project.
+
+ 
+
+
+Project Release Stage ------------------------------------------------------------------------------------------------------------
+
+NOTE!!! When changing from alpha -> beta, beta -> rc or rc -> final version (Public release) always keep the 
+	semantic version(1.0.0) ongoing. Do not reset the version if you move from alpha -> beta or from any releases.
+
+	EXAMPLE:
+
+		1.0.0-alpha.1 -- First local test (You test it).
+		1.1.0-beta.1 -- Public test.
+		1.2.1-beta.2 -- Second (2nd) public test.
+		1.2.1-rc.1 -- Possible final version.
+		1.2.1 -- Final release.
+
+		(FOR FURTHER INFORMATION ABOUT RELEASE STAGES READ "STAGES:").		
+
+STAGES:
+
+	Pre-release -- Any version before the final or stable release version. (Mostly testing)
+
+		EXAMPLES:
+
+			1.0.0-alpha.1
+			1.0.0-beta.1
+			1.0.0-rc.1
+
+	Alpha (1.0.0-alpha.1) -- First testing phase. Unstable and incomplete project features.
+
+		NOTE!!! Alpha testing phase means you the developer or your company will be the one to test the project.	
+
+	Beta (1.0.0-beta.1) -- More stable than alpha. Most features are complete. Can be used for public testing.
+
+		NOTE!!! Beta testing phase means that the user or players can test the project.
+
+	Release Candidate (1.0.0-rc.1) -- Possible final or stable version release. Complete and stable.
+
+		NOTE!!! Only increment the pre-release version if you modify, patch, or fix a feature.
+		
+		NOTE!!! Do not increment the semantic version (1.0.0) if you are currently on the pre-release stage, only
+			increment (alpha.1 -> alpha.2, beta.1 -> beta.2, or rc.1 -> rc.2) if you modify, patch, or fix a feature
+			on that pre-release stage.
+
+	Stable Release (1.0.0) -- Official version. Opened to the public. Safe for use.
+
+	Semantic Versioning (MAJOR.MINOR.PATCH -> 1.0.0) -- Ongoing and possible new features.

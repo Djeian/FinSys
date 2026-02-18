@@ -1,0 +1,70 @@
+This is the notepad of FinSys
+
+GIT COMMIT (Procedure) --------------------------------------------------------------------------------
+
+1. Check Git Version 
+
+    - Open the terminal and type
+
+                git --version
+
+                Output: git version 2.45.1.windows.1
+
+
+2. Set up your identity
+
+    - Write in the terminal
+
+            git config --global user.name "Your name"
+            git config --global user.email "Your email"
+
+
+3. Go to github and create a new repository, give it a name, do not add README, .gitignore, or license, and lastly copy the given link
+
+4. Git initialization 
+
+    - In the terminal type, go inside your project patch using `cd` and lastly type `git init`
+
+            Example:
+
+                C:\Users\you\project\myProject> git init
+
+
+5. Add all the files and folders
+
+    - In the terminal type
+
+        git add .  
+
+        NOTE!!! This adds all of the folders, files, and sub-folders.
+
+6. Commit
+
+    - In the terminal type
+
+        git commit -m "Your message"
+
+7. Connect your local repo to github
+
+    - Using the copied repo link from github type it her
+
+        git remote add origin https//github.com/username/yourProject.git
+
+    
+    - Verify if it has connected
+
+        git remote -v
+
+        Output:
+
+        origin https//github.com/username/yourProject.git
+        origin https//github.com/username/yourProject.git
+
+
+8. Push to github
+
+    - In the terminal type
+
+        git branch -M main
+
+        git push -u origin main
