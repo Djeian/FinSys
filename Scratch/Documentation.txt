@@ -75,6 +75,8 @@ TO-DO
 
     Clean the project -- DONE 
 
-    Create the boilerplate for public.css 
+    Create the boilerplate for public.css -- DONE
 
-    move the img and icons
+    Create the boilerplate for member.css
+
+    move the img and icons -- DONE
