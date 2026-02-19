@@ -77,6 +77,8 @@ TO-DO
 
     Create the boilerplate for public.css -- DONE
 
+    move the img and icons -- DONE
+
     Create the boilerplate for member.css
 
-    move the img and icons -- DONE
+    CREATE AN ERD FOR FINSYS
