@@ -14,7 +14,7 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Settings()
+    public IActionResult Reports()
     {
         return View();
     }

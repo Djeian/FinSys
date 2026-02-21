@@ -79,6 +79,10 @@
   --box-shadow: 0px 0px 10px 5px var(--black-shadow-color);
 
   --border: 1px solid var(--secondary);
+
+  --modal-sm: 300px;
+  --modal-md: 375px;
+  --modal-lg: 460px;
 }
 
 * {
@@ -157,8 +161,8 @@ input[type=number] {
   appearance: textfield; /* Standard property */
 }
 
-/* NAV */
 
+/* NAV */
 nav {
     max-width: 245px;
     height: 100vh;
@@ -240,6 +244,7 @@ nav {
 }
 
 .nav-item-icon {
+    display: flex;
     width: 20px;
 }
 
@@ -621,8 +626,8 @@ main {
 }
 
 .add-icon {
+    display: flex;
     width: 15px;
-    align-self: self-end;
 }
 
 .employees-card-con {
@@ -753,6 +758,7 @@ main {
 
 .reports-radio-input label {
     font-size: var(--text-sm);
+    cursor: pointer;
 }
 
 input[type="radio"] {
@@ -794,11 +800,6 @@ input[type="radio"] {
     position: relative;
 }
 
-.date-input input[type="date"]:focus {
-    border: 3px solid green;
-    outline: none;
-}
-
 .date-input::after {
     content: "";
     position: absolute;
@@ -816,11 +817,11 @@ select {
     padding-right: 35px;
 }
 
-.category-input {
+.select-input {
     position: relative;
 }
 
-.category-input:after {
+.select-input:after {
     content: "";
     position: absolute;
     right: 10px;
@@ -1035,3 +1036,133 @@ select {
     width: 15px;
     fill: white;
 }
+
+
+/* MODAL -- POP UP */
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    background: var(--black-muted-bg);
+    padding: var(--space-5);
+}
+
+.modal-sm {
+    width: var(--modal-sm);
+}
+
+.modal-md {
+    width: var(--modal-md);
+}
+
+.modal-lg {
+    width: var(--modal-lg);
+}
+
+/* MODAL - BUSINESSES REGISTRATION */
+.business-registration {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    gap: var(--space-4);
+}
+
+.business-registration-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-3);
+}
+
+.logo-icon {
+    display: flex;
+    align-self: center;
+    width: 100px;
+}
+
+.business-registration-head {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semi-bold);
+}
+
+.business-registration-body form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.business-registration-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.business-registration-row input {
+    width: 100%;
+}
+
+.business-registration-row select {
+    width: 100%;
+}
+
+.business-registration-label {
+    font-size: var(--text-md);
+    font-weight: var(--font-medium);
+}
+
+.business-registration-row-con {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.country-currency {
+    font-size: var(--text-sm);
+    font-weight: var(--font-regular);
+}
+
+.country-currency span {
+    font-weight: var(--font-medium);
+}
+
+.business-registration-radio-con {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.business-registration-radio-con .radio-con {
+    display: flex;
+    gap: var(--space-1);
+}
+
+.radio-con label {
+    font-size: var(--text-md);
+    cursor: pointer;
+}
+
+.business-registration-btn-con {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.business-registration-btn-con button {
+    flex: 1;
+}
+
+.cancel {
+    background: white;
+}
+
+.buy-now {
+    background: var(--accent);
+    border: none;
+}
+
+
