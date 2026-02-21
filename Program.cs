@@ -25,11 +25,11 @@ app.UseStaticFiles();
 // THIS HANDLE THE AREAS ROUTING
 app.MapControllerRoute(
     name: "areas",
-    pattern: "{area:exists}/{controller=Home}/{action=Employees}/{id?}"); // CHANGE MO LANG TONG ACTION SA `Main` PAG NAG PULL KA NG REQUEST GALING SAKEN -- MIGZ 
+    pattern: "{area:exists}/{controller=Home}/{action=Reports}/{id?}"); // CHANGE MO LANG TONG ACTION SA `Main` PAG NAG PULL KA NG REQUEST GALING SAKEN -- MIGZ 
  
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Employees}/{id?}", // CHANGE MO LANG TONG ACTION SA `Main` PAG NAG PULL KA NG REQUEST GALING SAKEN -- MIGZ
+    pattern: "{controller=Home}/{action=Reports}/{id?}", // CHANGE MO LANG TONG ACTION SA `Main` PAG NAG PULL KA NG REQUEST GALING SAKEN -- MIGZ
     defaults: new { area = "Member" })
     .WithStaticAssets();
 

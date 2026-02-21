@@ -92,7 +92,7 @@ html {
   font-family: "Inter", sans-serif;
 }
 
-p, span, button, input {
+p, span, button, input, label {
   color: var(--secondary);
 }
 
@@ -106,11 +106,25 @@ button {
   cursor: pointer;
 }
 
-input {
-  padding: var(--space-2) var(--space-4);
+input, select, textarea {
+  padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
   border: var(--border);
-  font-size: var(--body-md);
+  font-size: var(--text-sm);
+  font-family: "Inter", sans-serif;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+select {
+    appearance: none;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    height: 150px;
+    resize: none;
 }
 
 img {
@@ -129,6 +143,17 @@ ul {
 
 body {
     display: flex;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Standard property */
 }
 
 /* NAV */
@@ -683,3 +708,167 @@ main {
     font-size: var(--text-xs);
     color: var(--secondary-muted);
 }
+
+/* REPORTS */
+.reports {
+    border: var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+}
+
+.reports form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+}
+
+.input-con {
+    display: flex; 
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.reports-trans-type-con {
+    display: flex;
+    flex-direction: column;
+}
+
+.reports-trans-type-radio-con {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+}
+
+.reports-radio-input {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.reports-radio-input label {
+    font-size: var(--text-sm);
+}
+
+input[type="radio"] {
+    accent-color: var(--primary);
+}
+
+.reports-date-cat-con {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-5);
+}
+
+.reports-date-cat-con .input-con {
+    flex: 0 1 50px;
+}
+
+.date-input {
+    position: relative;
+}
+
+.date-input input {
+    padding-right: var(--space-2);
+}
+
+.date-input input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.date-input input[type="date"]:active {
+    position: relative;
+}
+
+.date-input input[type="date"]:focus {
+    border: 3px solid green;
+    outline: none;
+}
+
+.date-input::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3Cpath fill='%230077CC' d='M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z'/%3E%3C/svg%3E");
+    background-size: contain;
+    pointer-events: none;
+}
+
+select {
+    padding-right: 35px;
+}
+
+.category-input {
+    position: relative;
+}
+
+.category-input:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3Cpath fill='%230077CC' d='M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z'/%3E%3C/svg%3E");
+    background-size: contain;
+    pointer-events: none;
+}
+
+.reports-description-con {
+    display: flex;
+    flex-direction: column;
+}
+
+.reports-amount-con {
+    max-width: 100px;
+}
+
+.amount-input input {
+    width: 100%;
+}
+
+.reports-amount-payee-con {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: var(--space-5);
+}
+
+.reports-amount-payee-con .input-con {
+    flex: 0 1 80px;
+}
+
+.reports-button-con {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+}
+
+.save-transaction {
+    background: var(--accent);
+    border: none;
+}
+
+.clear-form {
+    background: white;
+}
+
+
+ 

@@ -83,6 +83,7 @@ TO-DO
 
     CREATE AN ERD FOR FINSYS
 
+    USE JS for date input border
 
     FIX NAV ICONS SVG
         - inline na lahat ng svg icons para maddali isama sa javascript if ever

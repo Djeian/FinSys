@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="~/css/member.css" asp-append-version="true">
 </head>
-<body>
+<body data-page="@ViewBag.Page">
     <!-- SIDE-NAVBAR -->
     <nav>
         <div class="nav-member-info-con">
@@ -97,5 +97,7 @@
             @RenderBody()
         </main>
     </div>
+
+    <script src="~/js/member.js"></script>
 </body>
 </html>
