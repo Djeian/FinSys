@@ -15,8 +15,8 @@ const PageScripts = {
     reports: function() {
         console.log("Reports");
 
+        // DATE INPUT FOCUSED OUTLINE DESIGN
         const dateBtn = document.getElementById("date");
-
         dateBtn.addEventListener("focus", function () {
             dateBtn.classList.add("active-input");
         });

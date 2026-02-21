@@ -82,38 +82,39 @@
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  font-size: 16px;
-  font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
 }
 
 p, span, button, input, label {
-  color: var(--secondary);
+    color: var(--secondary);
 }
 
 button {
-  font-size: var(--text-sm);
-  font-weight: var(--font-semi-bold);
-  font-family: "Inter", sans-serif;
-  padding: var(--space-2) var(--space-4);
-  border: var(--border);
-  border-radius: var(--radius-md);
-  cursor: pointer;
+    height: fit-content;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semi-bold);
+    font-family: "Inter", sans-serif;
+    padding: var(--space-2) var(--space-4);
+    border: var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
 }
 
 input, select, textarea {
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
-  border: var(--border);
-  font-size: var(--text-sm);
-  font-family: "Inter", sans-serif;
-  color: var(--secondary);
-  cursor: pointer;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    border: var(--border);
+    font-size: var(--text-sm);
+    font-family: "Inter", sans-serif;
+    color: var(--secondary);
+    cursor: pointer;
 }
 
 select {
@@ -875,4 +876,162 @@ select {
     border-radius: var(--radius-md);
 }
 
- 
+ /* SETTINGS */
+ .settings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+ }
+
+ .settings-user-info-con {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-5);
+    gap: var(--space-5);
+    border: var(--border);
+    border-radius: var(--radius-md);
+ }
+
+ .settings-user-info-header {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+ }
+
+ .user-icon-con {
+    display: flex;
+    align-items: self-start;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    padding: var(--space-2);
+    background: var(--black);
+    border-radius: var(--radius-full);
+ }
+
+ .user-icon {
+    width: 20px;
+ }
+
+ .user-icon .user {
+    fill: var(--white);
+ }
+
+ .settings-user-name {
+    font-size: var(--text-md);
+    font-weight: var(--font-semi-bold);
+ }
+
+ .settings-user-role {
+    font-size: var(--text-sm);
+    color: var(--secondary-muted);
+ }
+
+.settings-user-info-description {
+    display: flex;
+}
+
+.user-info-description-start {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    flex: 1;
+}
+
+.user-info-description-end {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    flex: 1;
+}
+
+.user-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    justify-content: start;
+}
+
+.user-info-item p {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+}
+
+.settings-user-label {
+    color: var(--secondary-muted) !important;
+    font-weight: var(--font-regular) !important;
+}
+
+.user-role-con {
+    width: fit-content;
+    border-radius: var(--radius-md);
+    background: var(--accent);
+    padding: var(--space-1) var(--space-2);
+}
+
+.settings-account-actions {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-5);
+    gap: var(--space-5);
+    border: var(--border);
+    border-radius: var(--radius-md);
+}
+
+.settings-account-actions-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-actions-head {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semi-bold);
+}
+
+.account-actions-subhead {
+    font-size: var(--text-sm);
+    color: var(--secondary-muted);
+}
+
+.settings-account-actions-con {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: var(--white-muted-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    gap: var(--space-3);
+}
+
+.account-actions-con-start {
+    display: flex;
+    flex-direction: column;
+}
+
+.actions-head {
+    font-size: var(--text-md);
+    font-weight: var(--font-medium);
+}
+
+.actions-subhead {
+    font-size: var(--text-sm);
+    color: var(--secondary-muted);
+}
+
+.log-out {
+    display: flex;
+    gap: var(--space-1);
+    align-items: center;
+    justify-content: center;
+    background: var(--danger);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-4);
+    color: var(--white);
+    border: none;
+}
+
+.log-out-icon {
+    display: flex;
+    width: 15px;
+    fill: white;
+}
