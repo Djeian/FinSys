@@ -81,7 +81,7 @@
   --border: 1px solid var(--secondary);
 
   --modal-sm: 300px;
-  --modal-md: 375px;
+  --modal-md: 390px;
   --modal-lg: 460px;
 }
 
@@ -194,6 +194,84 @@ input[type="radio"] {
 .full-width {
     width: 100%;
 }
+
+/* MODAL STRUCTURE */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-header p {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semi-bold);
+}
+
+.close-icon {
+    width: 15px;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.modal-body form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.modal-body-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.modal-input-con input {
+    width: 100%;
+}
+
+.modal-input-label {
+    font-size: var(--text-md);
+    font-weight: var(--font-medium);
+}
+
+.modal-input input {
+    width: 100%;
+}
+
+.modal-body-row-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--space-3);
+}
+
+.modal-body-button-con {
+    display: flex;
+    justify-content: end;
+    gap: var(--space-3);
+}
+
+/* BUTTONS */
+.cancel {
+    background: white;
+}
+
+.primary-button {
+    background: var(--accent);
+    border: var(--border);
+    border-color: var(--accent);
+}
+
+.danger-button {
+    background: var(--danger);
+    border: var(--border);
+    border-color: var(--danger);
+    color: var(--white);
+}
+
 
 /* NAV */
 nav {
@@ -1171,64 +1249,9 @@ select {
     flex: 1;
 }
 
-.cancel {
-    background: white;
-}
-
-.primary-button {
-    background: var(--accent);
-    border: none;
-}
-
 /* MODAL EMPLOYEE */
 .modal-employee {
     display: none;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-.modal-header p {
-    font-size: var(--text-xl);
-    font-weight: var(--font-semi-bold);
-}
-
-.close-icon {
-    width: 15px;
-    cursor: pointer;
-}
-
-.modal-body form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-}
-
-.modal-body-row {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-}
-
-.modal-input-con input {
-    width: 100%;
-}
-
-.modal-input-label {
-    font-size: var(--text-md);
-    font-weight: var(--font-medium);
-}
-
-.modal-input input {
-    width: 100%;
-}
-
-.modal-body-row-wrap {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: var(--space-3);
 }
 
 .phone-input {
@@ -1274,13 +1297,39 @@ select {
     transform: translateY(-50%);
 }
 
-.modal-body-button-con {
-    display: flex;
+/* MODAL EDIT TRANSACTION */
+.modal-edit-transaction {
+    display: none;
+}
+
+/* ALERT */
+.alert {
     justify-content: end;
+}
+
+.modal-body-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-body-head {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+}
+
+.modal-body-subhead {
+    font-size: var(--text-md);
+    text-align: center;
+}
+
+.modal-body-button-con {
+    display: flex; /* REMOVE IF THE POP UP DOES NOT REQUIRE A BUTTON */
     gap: var(--space-3);
 }
 
-/* MODAL EDIT TRANSACTION */
-.modal-edit-transaction {
-    display: flex;
+.modal-body-button-con button {
+    flex: 1;
 }
