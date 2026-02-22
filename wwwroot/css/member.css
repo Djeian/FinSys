@@ -161,6 +161,39 @@ input[type=number] {
   appearance: textfield; /* Standard property */
 }
 
+/* COMPONENTS */
+
+/* RADIO CONTAINER */
+.radio-con {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+}
+
+.radio-input {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.radio-input label {
+    font-size: var(--text-sm); 
+    cursor: pointer;
+}
+
+.modal-radio-input label {
+    font-size: var(--text-md); 
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    accent-color: var(--primary);
+}
+
+/* FULL WIDTH */
+.full-width {
+    width: 100%;
+}
 
 /* NAV */
 nav {
@@ -744,27 +777,6 @@ main {
     flex-direction: column;
 }
 
-.reports-trans-type-radio-con {
-    display: flex;
-    gap: var(--space-4);
-    align-items: center;
-}
-
-.reports-radio-input {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-}
-
-.reports-radio-input label {
-    font-size: var(--text-sm);
-    cursor: pointer;
-}
-
-input[type="radio"] {
-    accent-color: var(--primary);
-}
-
 .reports-date-cat-con {
     display: flex;
     flex-wrap: wrap;
@@ -1070,6 +1082,8 @@ select {
     background: var(--white);
     border-radius: var(--radius-md);
     padding: var(--space-4);
+    flex-direction: column;
+    gap: var(--space-5);
 }
 
 /* MODAL - BUSINESSES REGISTRATION */
@@ -1148,11 +1162,6 @@ select {
     gap: var(--space-1);
 }
 
-.radio-con label {
-    font-size: var(--text-md);
-    cursor: pointer;
-}
-
 .business-registration-btn-con {
     display: flex;
     gap: var(--space-3);
@@ -1173,9 +1182,7 @@ select {
 
 /* MODAL EMPLOYEE */
 .modal-employee {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
+    display: none;
 }
 
 .modal-header {
@@ -1271,4 +1278,9 @@ select {
     display: flex;
     justify-content: end;
     gap: var(--space-3);
+}
+
+/* MODAL EDIT TRANSACTION */
+.modal-edit-transaction {
+    display: flex;
 }

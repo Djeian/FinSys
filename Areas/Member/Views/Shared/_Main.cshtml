@@ -274,7 +274,78 @@
         </div>
 
 
-        
+        <div class="modal-edit-transaction modal-lg">
+            <div class="modal-header">
+                <p>Edit Transaction</p>
+
+                <div class="close-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"/></svg>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <form action="">
+                    <div class="modal-body-row">
+                        <p class="modal-input-label">Transaction Type</p>
+
+                        <div class="radio-con">
+                            <div class="modal-radio-input">
+                                <input type="radio" name="editTransactionType" id="modal-income">
+                                <label for="modal-income">Income</label>
+                            </div>
+
+                            
+                            <div class="modal-radio-input">
+                                <input type="radio" name="editTransactionType" id="modal-expense">
+                                <label for="modal-expense">Expense</label>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                    <div class="modal-body-row">
+                        <p class="modal-input-label">Category</p>
+                        
+                        <div class="modal-input select-input">
+                            <select class="full-width" name="category" id="category">
+                                <option value="" disabled selected hidden>Select a category</option>
+                                <option value="orders">Orders</option>
+                                <option value="transaction">Transaction</option>
+                                <option value="equipments">Equipmentents</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-body-row-wrap">
+                        <div class="modal-body-row">
+                            <p class="modal-input-label">Amount</p>
+                            <div class="modal-input amount-input">
+                                <input name="amount" type="number" inputmode="numeric" placeholder="0.00" oninput="this.value = this.value.replace(/[eE+\-]/g, '');">
+                            </div>
+                        </div>
+
+                        <div class="modal-body-row">
+                            <p class="modal-input-label">Payee</p>
+                            <div class="modal-input">
+                                <input type="text" name="payee" placeholder="Enter payee name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-body-row">
+                        <p class="modal-input-label">Description</p>
+                        <div class="modal-input description-input">
+                            <textarea name="description" type="text" placeholder="Enter a description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-body-button-con">
+                        <button class="cancel">Cancel</button>
+                        <button class="primary-button">Update Transaction</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </div>
 
