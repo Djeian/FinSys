@@ -195,6 +195,12 @@ input[type="radio"] {
     width: 100%;
 }
 
+/* WRAPPED */
+.wrapped {
+    flex-direction: column;
+    flex-wrap: wrap !important;
+}
+
 /* MODAL STRUCTURE */
 .modal-header {
     display: flex;
@@ -224,6 +230,12 @@ input[type="radio"] {
 }
 
 .modal-body-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.modal-body-row-con {
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
@@ -1131,7 +1143,7 @@ select {
 /* MODAL -- POP UP */
 .modal {
     position: fixed;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 9999;
@@ -1190,37 +1202,6 @@ select {
     font-weight: var(--font-semi-bold);
 }
 
-.business-registration-body form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-}
-
-.business-registration-row {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-}
-
-.business-registration-row input {
-    width: 100%;
-}
-
-.business-registration-row select {
-    width: 100%;
-}
-
-.business-registration-label {
-    font-size: var(--text-md);
-    font-weight: var(--font-medium);
-}
-
-.business-registration-row-con {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-}
-
 .country-currency {
     font-size: var(--text-sm);
     font-weight: var(--font-regular);
@@ -1228,25 +1209,6 @@ select {
 
 .country-currency span {
     font-weight: var(--font-medium);
-}
-
-.business-registration-radio-con {
-    display: flex;
-    gap: var(--space-4);
-}
-
-.business-registration-radio-con .radio-con {
-    display: flex;
-    gap: var(--space-1);
-}
-
-.business-registration-btn-con {
-    display: flex;
-    gap: var(--space-3);
-}
-
-.business-registration-btn-con button {
-    flex: 1;
 }
 
 /* MODAL EMPLOYEE */
@@ -1303,6 +1265,10 @@ select {
 }
 
 /* ALERT */
+.modal-alert {
+    display: none;
+}
+
 .alert {
     justify-content: end;
 }

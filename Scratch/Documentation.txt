@@ -86,8 +86,9 @@ TO-DO
     USE JS for date input border
 
     FIX NAV ICONS SVG
-        - inline na lahat ng svg icons para maddali isama sa javascript if ever
-
-        make all the button  tag have one class
-
         tang ina ctrl + d pala ung magic key HAHAHAHA
+
+
+        Make all button have an onclick event listener for pop up
+
+        afer that make everything responsive 
