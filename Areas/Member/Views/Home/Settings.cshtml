@@ -1,0 +1,78 @@
+@{
+    // HEADER INFO
+    ViewData["Title"] = "Settings";
+    ViewData["Description"] = "Manage your account"; 
+    ViewData["Page"] = "settings";
+}
+
+<div class="settings">
+    <div class="settings-user-info-con">
+        <div class="settings-user-info-header">
+            <div class="user-icon-con">
+                <div class="user-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path class="user" d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"/></svg>
+                </div>
+            </div>
+
+            <div class="user-header">
+                <p class="settings-user-name">Migz Reyes</p>
+                <p class="settings-user-role">Backend Developer</p>
+            </div>
+        </div>
+
+        <div class="settings-user-info-description">
+            <div class="user-info-description-start">
+                <div class="user-info-item">
+                    <p class="settings-user-label">Email</p>
+                    <p>migz&#64;gmail.com</p>
+                </div>
+
+                <div class="user-info-item">
+                    <p class="settings-user-label">Account Created</p>
+                    <p>2/12/2026</p>
+                </div>
+
+                <div class="user-info-item">
+                    <p class="settings-user-label">Role</p>
+                    <div class="user-role-con">
+                        <p>Admin</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-info-description-end">
+                <div class="user-info-item">
+                    <p class="settings-user-label">Phone</p>
+                    <p>+63 (09) 94 875 1567</p>
+                </div>
+
+                <div class="user-info-item">
+                    <p class="settings-user-label">Address</p>
+                    <p>Grand Centennial Homes, San Sebastian, Kawit, Cavite</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-account-actions">
+        <div class="settings-account-actions-header">
+            <p class="account-actions-head">Account Settings</p>
+            <p class="account-actions-subhead">Manage your session</p>
+        </div>
+
+        <div class="settings-account-actions-con">
+            <div class="account-actions-con-start">
+                <p class="actions-head">Sign out</p>
+                <p class="actions-subhead">Log out of your account and return to the login page</p>
+            </div>
+
+            <button class="log-out" id="logOutBtn">
+                <div class="log-out-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path class="log-out-icon" d="M224 160C241.7 160 256 145.7 256 128C256 110.3 241.7 96 224 96L160 96C107 96 64 139 64 192L64 448C64 501 107 544 160 544L224 544C241.7 544 256 529.7 256 512C256 494.3 241.7 480 224 480L160 480C142.3 480 128 465.7 128 448L128 192C128 174.3 142.3 160 160 160L224 160zM566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L438.6 169.3C426.1 156.8 405.8 156.8 393.3 169.3C380.8 181.8 380.8 202.1 393.3 214.6L466.7 288L256 288C238.3 288 224 302.3 224 320C224 337.7 238.3 352 256 352L466.7 352L393.3 425.4C380.8 437.9 380.8 458.2 393.3 470.7C405.8 483.2 426.1 483.2 438.6 470.7L566.6 342.7z"/></svg>
+                </div>
+                Log Out
+            </button>
+        </div>
+    </div>
+
+</div>

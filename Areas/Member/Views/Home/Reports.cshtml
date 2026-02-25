@@ -1,0 +1,77 @@
+@{
+    // HEADER INFO
+    ViewData["Title"] = "Reports";
+    ViewData["Description"] = "Records new financial transaction"; 
+    ViewData["Page"] = "reports";
+}
+
+<div class="reports">
+    <form action="" id="addTransaction">
+        <div class="reports-trans-type-con input-con">
+            <p class="label">Transaction Type</p>
+            <div class="radio-con">
+                <div class="radio-input">
+                    <input type="radio" id="income" value="income" name="transactionType" checked>
+                    <label for="income">Income</label>
+                </div>
+    
+                <div class="radio-input">
+                    <input type="radio" id="expense" value="expense" name="transactionType">
+                    <label for="expense">Expense</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="reports-date-cat-con">
+            <div class="reports-date-con input-con">
+                <p class="label">Date</p>
+                <div class="date-input">
+                    <label for="date"></label>
+                    <input name="date" type="date" id="date">
+                </div>
+            </div>
+
+            <div class="reports-cat-con input-con">
+                <p class="label">Category</p>
+                <div class="category-input select-input">
+                    <select name="category" id="category">
+                        <option value="" disabled selected hidden>Select a category</option>
+                        <option value="orders">Orders</option>
+                        <option value="transaction">Transaction</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="supplies">Supplies</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="reports-description-con input-con">
+            <p class="label">Description</p>
+            <div class="description-input">
+                <textarea name="description" type="text" placeholder="Enter a description"></textarea>
+            </div>
+        </div>
+
+        <div class="reports-amount-payee-con">
+            <div class="reports-amount-con input-con">
+                <p class="label">Amount</p>
+                <div class="amount-input">
+                    <input name="amount" type="number" inputmode="numeric" placeholder="0.00" oninput="this.value = this.value.replace(/[eE+\-]/g, '');">
+                </div>
+            </div>
+
+            <div class="reports-payee-con input-con">
+                <p class="label">Payee</p>
+                <div class="payee-input">
+                    <input name="payee" type="text" placeholder="Enter payee name">
+                </div>
+            </div>
+        </div>
+
+        <div class="reports-button-con">
+            <button type="submit" class="save-transaction">Save Transaction</button>
+            <button type="button" class="clear-form" id="clearForm">Clear Form</button>
+        </div>
+    </form>
+
+</div>

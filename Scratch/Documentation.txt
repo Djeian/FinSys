@@ -69,6 +69,12 @@ GIT COMMIT (Procedure) ---------------------------------------------------------
 
         git push -u origin main
 
+REALIZATION
+    
+    *** tang ina ctrl + d pala ung magic key HAHAHAHA
+
+    *** Si <path> ung settan mo ng fill, stroke, at width para sa svg
+    *** Wag mong kalimutan si stroke witdth pag mag set ng stroke color
 
 
 TO-DO 
@@ -79,6 +85,118 @@ TO-DO
 
     move the img and icons -- DONE
 
-    Create the boilerplate for member.css
+    Create the boilerplate for member.css -- DONE
+
+    USE JS for date input border -- DONE
 
     CREATE AN ERD FOR FINSYS
+
+    Make everything responsive
+
+2/22/2026 ---
+
+    FIX NAV ICONS SVG
+
+    Make all button have an onclick event listener for pop up
+
+    afer that make everything responsive 
+
+    pag mag insert ka ng employee gamit / lagay ka ng data attribute para ma identify kung sino eedit at 
+    idedelete
+
+    use querySelectorAll the inside get the data attribute for each card / list
+
+2/23/2026 ---
+
+    For Forgot Password (Concept) - * This would be inside the controller not in JS!!!
+        - The client will use their email for the system to send a 6-digit code to their email with the use   
+        of a composer.
+
+        - Generate a 6-digit random number with Math.Random(), then store it in a table with the client's
+        email. Store the email inside a temporary storage.
+
+        - Using the email from the temporary storage to fetch / check the code that was sent by the system
+        if its valid. If its valid redirect the user to the reset password page and set the table property
+        `used` to true, to avoid the re-use of the 6-digit code.
+
+        - Then use the email from the temporary storage to update the user's password. Then clear the storage.
+
+        ** ALWAYS CLEAR THE TEMPORARY STORAGE IF CANCELLED AND USED.
+        ** Use Session
+
+
+    How the fuck would you let clients have their own tables?
+    Can you store table inside a table????
+    use unique id for each data inserted? Perfomance issue? One table for all? Ang mangyayari dito is gagamit tayo
+    ng unique id to identify the cleints data sa iisang table, which is for sure apektado ang perfomance kasi isesearch ng
+    system ang buong row / data ng table para mahanap ung data ni user.
+
+
+    Database Schema
+        *FINAL 
+            - Use one table for financial transactions and employees. 
+            - Just use a unique id for each company
+
+
+        Tables 
+            - Clients
+            - Companies
+            - Financial transactions
+            - Employees
+            - ResetPassword
+
+        * ALL OF THE TABLE WILL HAVE THE UNIQUE ID OF COMPANIES, EXCEPT `ResetPassword`
+
+        Schema
+            Clients
+                - Id 
+                - FirstName
+                - LastName
+                - Email
+                - Phone 
+                - Password 
+                - Country
+                - CompanyId *Nullable
+                - isPayed   
+
+            Companies 
+                - Id
+                - ClientsId
+                - CompanyId
+                - CompanyName
+                - CompanyLogo
+                - CompanyIndustry
+                - CompanyCountry
+                - Employees
+                - Plan
+
+            FinancialTransactions
+                - Id 
+                - CompanyId 
+                - DateOfTransaction
+                - Category
+                - Description 
+                - Amount 
+                - Payee 
+
+            Employees 
+                - Id 
+                - CompanyId 
+                - FirstName
+                - MiddleName
+                - LastName
+                - Role 
+                - Email 
+                - Phone 
+                - Address
+
+            ResetPassword
+                - Id 
+                - Email
+                - Code
+                - IsUsed 
+
+        * Use index for FinancialTransactions and Employees only!! For faster read
+
+
+        

@@ -19,7 +19,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult FinancialTransaction()
+    public IActionResult FinancialTransactions()
     {
         return View();
     }
@@ -28,12 +28,13 @@ public class HomeController : Controller
     {
         return View();
     }
-
+    
     public IActionResult Reports()
     {
         return View();
     }
 
+    
     public IActionResult Settings()
     {
         return View();

@@ -1,0 +1,83 @@
+@{
+    // HEADER INFO
+    ViewData["Title"] = "Dashboard";
+    ViewData["Description"] = "Overview of your financial performance";
+    ViewData["Page"] = "dashboard";
+}
+
+<div class="dashboard">
+    <div class="dashboard-cards-con">
+
+        <div class="card">
+            <div class="card-head">
+                <p>Total Income</p>
+
+                <div class="card-icon-con">    
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path class="income" d="M342.6 73.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L288 173.3V544c0 17.7 14.3 32 32 32s32-14.3 32-32V173.3l105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-details">
+                <p class="card-details-value income">₱1,600,000</p>
+                <p class="card-details-description" >From all orders</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <p>Total Expense</p>
+
+                <div class="card-icon-con">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path class="expense" d="M342.6 73.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L288 173.3V544c0 17.7 14.3 32 32 32s32-14.3 32-32V173.3l105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-details">
+                <p class="card-details-value expense">₱650,000</p>
+                <p class="card-details-description" >Over 25.3% greater</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <p>Net Profit</p>
+
+                <div class="card-icon-con">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path class="trend-up" d="M416 224a32 32 0 1 1 0-64h160c18 0 32 14 32 32v160a32 32 0 1 1-64 0v-83L375 439a32 32 0 0 1-46 0L224 333 87 471a32 32 0 0 1-46-46l160-160c13-12 33-12 46 0l105 106 147-147h-83z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-details">
+                <p class="card-details-value trend-up">₱69,000,000</p>
+                <p class="card-details-description" >69.69% profit margin</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-fin-over-con">
+        <!-- ON-GOING DESIGN PA TO  -->
+        <div class="dashboard-fin-over-header">
+            <p class="dashboard-fin-over-head">Financial Overview</p>
+            <p class="dashboard-fin-over-description">Monthly income and expenses comparison</p>
+        </div>
+
+        <!-- GRAPH DAPAT DITO -->
+
+    </div>
+
+    <div class="dashboard-exp-break-cat-con">
+        <div class="dashboard-exp-break-cat-header">
+            <p class="dashboard-exp-break-cat-head">Expense Breakdown by Category</p>
+            <p class="dashboard-exp-break-cat-description">Total expenses by category</p>
+        </div>
+        
+        <!-- GRAPH TO -->
+    </div>
+
+</div>
