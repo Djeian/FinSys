@@ -107,6 +107,15 @@ public class HomeController : Controller
     } 
 
     [HttpGet]
+    public async Task<IActionResult> GetEmployees()
+    {
+        int companyId = Convert.ToInt32(User.FindFirst("CompanyId")?.Value); 
+        var employees = await _context.Employees.Where(e => e.CompanyId == companyId).ToListAsync();
+
+        return Ok(employees);
+    }
+
+    [HttpGet]
     public async Task<IActionResult> GetCompanyInfo()
     {
         int clientId = Convert.ToInt32(User.FindFirst("ClientId")?.Value);
