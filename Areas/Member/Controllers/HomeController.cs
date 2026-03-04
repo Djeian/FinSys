@@ -7,6 +7,7 @@ using FinSys.DTO;
 using FinSys.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace FinSys.Areas.Member.Controllers;
 
@@ -192,6 +193,16 @@ public class HomeController : Controller
         await _context.SaveChangesAsync();
 
         return Ok( new { message = "Employee updated successfully" });
+    }
+
+    [HttpPost] 
+    public async Task<IActionResult> GetSelectedTransactions([FromBody] PickerItem pickerItemDto)
+    {
+        int companyId = Convert.ToInt32(User.FindFirst("CompanyId")?.Value); 
+        var transaction = await _context.FinancialTransactions.Where(t => t.Type == pickerItemDto.Selected && t.CompanyId == companyId).ToListAsync();
+
+        Console.WriteLine(pickerItemDto.Selected);
+        return Ok(transaction);
     }
 
     [HttpPost]

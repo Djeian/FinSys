@@ -257,7 +257,30 @@ const PageScripts = {
         });
 
         // DISPLAY TRANSACTIONS
+        let selectedType;
         loadTransactions();
+
+        document.querySelector(".financial-transaction-picker").addEventListener("click", function (e) {
+            const allTransaction = e.target.closest(".pickerAllTransaction")?.dataset.item;
+            const income = e.target.closest(".pickerIncome")?.dataset.item;
+            const expenses = e.target.closest(".pickerExpense")?.dataset.item;
+
+            if (allTransaction) {
+                debug("Picker", "all transaction " + allTransaction);
+                selectedType = allTransaction;
+                pickerTransaction(allTransaction);
+            } else if (income) {
+                debug("Picker", "Income " + income);
+                selectedType = income;
+                pickerTransaction(income);
+            } else if (expenses) {  
+                debug("Picker", "Expenses " + expenses);
+                selectedType = expenses;
+                pickerTransaction(expenses);
+            } else {
+                debug("Picker error", "Nothing picked");
+            }
+        });
 
         // EDIT TRANSACTION
         editTransaction.addEventListener("submit", async function (e) {
@@ -290,7 +313,7 @@ const PageScripts = {
                 })
                 .catch(err => debug("Error", err));
 
-                await loadTransactions();
+                await pickerTransaction(selectedType);
             } else {
                 clearErrorInputFields(form);
             }
@@ -316,7 +339,7 @@ const PageScripts = {
         });
         
         document.querySelector(".confirm").addEventListener("click", function () {
-            deleteTransaction(transactionId);
+            deleteTransaction(transactionId, selectedType);
         });
         
     },
@@ -630,7 +653,40 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // FUNCTIONS
-async function deleteTransaction(id) {
+async function pickerTransaction(selected) {
+
+    if (selected === "Income" || selected === "Expenses") {
+        if (selected === "Expenses") {
+            selected = "Expense";
+        }
+
+        try {
+            const res = await fetch("/Member/Home/GetSelectedTransactions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ Selected: selected })
+            });
+
+            const transactions = await res.json();
+
+            if (window.innerWidth < 760) {
+                const cardCon = document.getElementById("transactionCardCon");
+                displayTransactions(transactions, cardCon);
+            } else {
+                const table = document.getElementById("transactionTable");
+                displayTransactions(transactions, table);
+            }
+        } catch (err) {
+            debug("Error", err);    
+        }
+    } else {
+        loadTransactions();
+    }
+}
+
+async function deleteTransaction(id, type) {
     const res = await fetch("/Member/Home/DeleteTransaction", {
         method: "POST",
         headers: {
@@ -643,7 +699,7 @@ async function deleteTransaction(id) {
 
     const data = await res.json();
     debug("Message", data.message);
-    await loadTransactions();
+    await pickerTransaction(type);
 }
 
 async function displayTransaction(id) {
