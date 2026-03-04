@@ -386,7 +386,12 @@ nav {
     gap: var(--space-7);
 }
 
+.close-nav .nav-member-info-con {
+    justify-content: center;
+}
+
 .nav-member-info-con {
+    width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;

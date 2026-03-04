@@ -291,4 +291,8 @@ TO-DO
 
 3/4/2026 ---
 
-    Add, delete, and edit financial transactions 
+    Add, delete, and edit financial transactions -- DONE
+
+    TO-DO Fix company logo padding -- DONE
+
+    Make company name show using c# not js 
