@@ -900,7 +900,7 @@ async function displayTransactions(data, tableId) {
                     
                     <div class="card-body-row-wrap">
                         <p class="card-body-row-label">Description:</p>
-                        <p class="card-body-row-data">${c.description}</p>
+                        <p class="card-body-row-data descriptionCard">${c.description}</p>
                     </div>
                 </div>
             `
@@ -928,7 +928,7 @@ async function displayTransactions(data, tableId) {
                     <td>${dateFormat(t.dateOfTransaction)}</td>
                     <td id="type" class="${type}">${t.type}</td>
                     <td>${t.category}</td>
-                    <td>${t.description}</td> <!-- Re design this shit set a maximum words then gawa ka ng parang button na "see more" -->
+                    <td class="description">${t.description}</td> <!-- Re design this shit set a maximum words then gawa ka ng parang button na "see more" -->
                     <td>₱${t.amount}</td>
                     <td class="payee-col">${t.payee}</td>
                     <td>

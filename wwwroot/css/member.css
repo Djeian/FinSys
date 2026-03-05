@@ -132,6 +132,10 @@ input, select, textarea {
     cursor: pointer;
 }
 
+td, th {
+    cursor: default;
+}
+
 select {
     -webkit-appearance: none;
     -moz-appearance: none;   
@@ -400,8 +404,9 @@ nav {
 }
 
 .nav-member-logo-con {
-    width: 55px;
-    height: 100%;
+    width: 45px;
+    height: 45px;
+    overflow: clip;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -768,6 +773,7 @@ main {
 
 .picker-item p {
     color: var(--secondary-muted);
+    cursor: pointer;
 }
 
 .picker-item:hover {
@@ -839,6 +845,13 @@ main {
 
 .financial-transaction-table-con tr:last-child td {
     border: none;
+}
+
+.description {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .income {
@@ -941,6 +954,10 @@ main {
     font-weight: var(--font-medium);
 }
 
+.descriptionCard {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
 
 
 /* EMPLOYEES */

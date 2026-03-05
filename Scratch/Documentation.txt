@@ -317,3 +317,16 @@ TO-DO
 
 
     FOCUS ON SCALABILITY!
+
+
+3/6/2026 --- 
+
+    Pukinang ina iba pa pala ang MySQL server sa workbench ahahahah, pinaka importante si MySQL server.
+
+    Install MySQL Installer -- DONE
+
+    Fix description in financial transaction Table, too long paragrpaphs 
+
+    Fix phone, add +63 -- DONE
+
+    Add a default logo -- DONE
