@@ -610,6 +610,30 @@ main {
     align-items: center;
 }
 
+.card-icon-con .increasedIncome {
+    display: none;
+}
+
+.card-icon-con .decreasedIncome {
+    display: none;
+}
+
+.card-icon-con .increasedExpense {
+    display: none;
+}
+
+.card-icon-con .decreasedExpense {
+    display: none;
+}
+
+.card-icon-con .increasedNetProfit {
+    display: none;
+}
+
+.card-icon-con .decreasedNetProfit {
+    display: none;
+}
+
 .card-icon {
     width: 20px;
 }
@@ -631,9 +655,19 @@ main {
     color: var(--secondary-muted);
 }
 
+
+.card-details-description span {
+    font-size: inherit;
+    color: inherit;
+}
+
 .income {
     fill: var(--increase);
     color: var(--increase);
+}
+
+.income span {
+    color: inherit;
 }
 
 .expense {
@@ -641,9 +675,17 @@ main {
     color: var(--decrease);
 }
 
+.expense span {
+    color: inherit;
+}
+
 .trend-up {
     fill: var(--primary);
     color: var(--primary);
+}
+
+.trend-up span {
+    color: inherit;
 }
 
 .dashboard-fin-over-con {
@@ -804,6 +846,16 @@ main {
 }
 
 .expenses {
+    color: var(--decrease);
+}
+
+.increase {
+    fill: var(--increase);
+    color: var(--increase);
+}
+
+.decrease {
+    fill: var(--decrease);
     color: var(--decrease);
 }
 

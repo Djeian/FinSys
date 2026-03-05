@@ -267,9 +267,9 @@ TO-DO
 
 2/28/2026 ---
 
-    Make sign up and log in work
+    Make sign up and log in work -- DONE 
 
-    create a dto for clients
+    create a dto for clients -- DONE 
 
     JavaScript request?
 
@@ -296,3 +296,24 @@ TO-DO
     TO-DO Fix company logo padding -- DONE
 
     Make company name show using c# not js 
+
+3/5/2026 ---
+
+    Make dashboard functional -- DONE
+
+    Calculate the total income by getting all of the data that has `income` same with expense
+
+    Divide the expense by income to get the percentage of expense
+
+    To get the net profit, just subtract the total income to expense
+
+    Calculate it server-side????
+
+    Always separate functions based on its uses, easier to understand, maintain, scale, and debug
+
+    Always calculate on the server-side and display on JS only
+
+    if expense is less than income (expense < 100%) display arrow down, if expense is greater than income (expense > 100%`) display arrow up. Opposite for income
+
+
+    FOCUS ON SCALABILITY!

@@ -195,6 +195,51 @@ public class HomeController : Controller
         return Ok( new { message = "Employee updated successfully" });
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetCommonSizeStatement()
+    {
+        int companyId = Convert.ToInt32(User.FindFirst("CompanyId")?.Value); 
+        var income = await _context.FinancialTransactions.Where(t => t.CompanyId == companyId && t.Type == "Income").SumAsync(t => t.Amount);        
+        var expense = await _context.FinancialTransactions.Where(t => t.CompanyId == companyId && t.Type == "Expense").SumAsync(t => t.Amount);  
+
+        decimal expenseStatement = expense == 0 ? 0 : Math.Round(((Decimal)expense / income) * 100, 2); // This just get the percentage of the expense based on the income, if expense is greater than income 
+        decimal netProfitStatement = Math.Round(((decimal)(income - expense) / income) * 100, 2);
+
+        return Ok( new { expense = expenseStatement, netProfit = netProfitStatement });
+    }
+
+    [HttpGet] 
+    public async Task<IActionResult> GetNetProfit()
+    {
+        int companyId = Convert.ToInt32(User.FindFirst("CompanyId")?.Value); 
+        var income = await _context.FinancialTransactions.Where(t => t.CompanyId == companyId && t.Type == "Income").SumAsync(t => t.Amount);        
+        var expense = await _context.FinancialTransactions.Where(t => t.CompanyId == companyId && t.Type == "Expense").SumAsync(t => t.Amount);  
+
+        var netProfit = income - expense; 
+
+        return Ok( new { totalProfit = netProfit});
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> GetExpense()
+    {
+        int companyId = Convert.ToInt32(User.FindFirst("CompanyId")?.Value); 
+        var expense = await _context.FinancialTransactions.Where(t => t.CompanyId == companyId && t.Type == "Expense").SumAsync(t => t.Amount);        
+
+
+        return Ok( new { totalExpense = expense });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetIncome()
+    {
+        int companyId = Convert.ToInt32(User.FindFirst("CompanyId")?.Value); 
+        var income = await _context.FinancialTransactions.Where(t => t.CompanyId == companyId && t.Type == "Income").SumAsync(t => t.Amount);        
+
+        return Ok( new { totalIncome = income });
+    }
+
     [HttpPost] 
     public async Task<IActionResult> GetSelectedTransactions([FromBody] PickerItem pickerItemDto)
     {

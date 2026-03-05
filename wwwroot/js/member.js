@@ -109,6 +109,11 @@ const PageScripts = {
         let companyCountry = document.getElementById("companyCountry");
         let companyEmployees = companyRegistration.elements["employees"].value;
 
+        let income = document.getElementById("income");
+        let expense = document.getElementById("expense");
+        let netProfit = document.getElementById("netProfit");
+        let expenseStatement = document.getElementById("expenseStatement");
+        let netProfitStatement = document.getElementById("netProfitStatement");
 
          // DISPLAY CLIENT INFO
         fetch("/Member/Home/IsClientPayed")
@@ -130,6 +135,12 @@ const PageScripts = {
                 }
             })
             .catch(err => debug("Error", err));
+
+        // DISPLAY DASHBOARD
+        displayIncome(income);
+        displayExpense(expense);
+        displayNetProfit(netProfit);
+        displayCommonSizeStatement(expenseStatement, netProfitStatement);
 
         // COMPANY REGISTRATION
         companyRegistration.addEventListener("submit", async function (e) {
@@ -653,6 +664,102 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // FUNCTIONS
+async function displayStatementIcons(expense) {
+    let incomeIncreaseIcon = document.querySelector(".increasedIncome");
+    let incomeDecreaseIcon = document.querySelector(".decreasedIncome");
+
+    let expenseIncreaseIcon = document.querySelector(".increasedExpense");
+    let expenseDecreaseIcon = document.querySelector(".decreasedExpense");
+
+    let netProfitIncreasedIcon = document.querySelector(".increasedNetProfit");
+    let netProfitDecreasedIcon = document.querySelector(".decreasedNetProfit");
+
+    let financialValue = document.querySelectorAll(".financialValue");
+
+    if (expense > 100) {
+        debug("Expense", "HIgh");
+
+        incomeIncreaseIcon.classList.remove("show");
+        incomeDecreaseIcon.classList.add("show");
+
+        expenseIncreaseIcon.classList.add("show");
+        expenseDecreaseIcon.classList.remove("show");
+
+        netProfitIncreasedIcon.classList.remove("show");
+        netProfitDecreasedIcon.classList.add("show");
+
+        financialValue.forEach(v => {
+            v.classList.add("decrease");
+        })
+
+    } else {
+        debug("Expense", "low");
+        incomeIncreaseIcon.classList.add("show");
+        incomeDecreaseIcon.classList.remove("show");
+
+        expenseIncreaseIcon.classList.remove("show");
+        expenseDecreaseIcon.classList.add("show");
+
+        netProfitIncreasedIcon.classList.add("show");
+        netProfitDecreasedIcon.classList.remove("show"); 
+
+        financialValue.forEach(v => {
+            v.classList.remove("decrease");
+        })
+    }
+}
+
+async function displayCommonSizeStatement(expenseId, netProfitId) {
+    try {
+        const res = await fetch("/Member/Home/GetCommonSizeStatement");
+        const data = await res.json();
+
+        debug("Expense %", data.expense);
+        expenseId.textContent = data.expense;
+        netProfitId.textContent = data.netProfit;
+        displayStatementIcons(data.expense);
+    } catch (err) {
+        debug("Error", err);
+    }
+}
+
+async function displayNetProfit(id) {
+    try {
+        const res = await fetch("/Member/Home/GetNetProfit");
+        const data = await res.json();
+
+        id.textContent = data.totalProfit;
+        debug("Net profit", data.totalProfit);
+    } catch (err) {
+        debug("Error", err);
+    } 
+}
+
+async function displayExpense(id) {
+    try {
+        const res = await fetch("/Member/Home/GetExpense");
+        const data = await res.json();
+
+        id.textContent = data.totalExpense;
+        debug("Total Expense", data.totalExpense);
+    } catch (err) {
+        debug("Error", err);
+    }
+}
+
+async function displayIncome(id) {
+    
+    try {
+        const res = await fetch("/Member/Home/GetIncome");
+        const data = await res.json();
+
+        id.textContent = data.totalIncome;
+        debug("Total Income", data.totalIncome);
+    } catch (err) {
+        debug("Error", err);
+    }
+}
+
 async function pickerTransaction(selected) {
 
     if (selected === "Income" || selected === "Expenses") {
