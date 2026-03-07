@@ -98,7 +98,7 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   scroll-snap-align: center;
-  font-size: clamp(14px, 1vw, 16px);
+  font-size: clamp(7px, 2vw, 16px);
   font-family: "Inter", sans-serif;
 }
 
@@ -221,7 +221,7 @@ main {
 }
 
 .main-subsection {
-  min-height: 800px;
+  min-height: 100vh;
 }
 
 .nav-list-con {
@@ -238,7 +238,7 @@ main {
 }
 
 .nav-logo svg {
-  width: 100px;
+  width: clamp(50px, 20vw, 100px);
 }
 
 .logo path {
@@ -256,6 +256,7 @@ main {
   background-color: var(--accent);
   font-size: var(--body-md);
   font-weight: var(--font-semi-bold);
+  width: 100%;
   border: none;
 }
 
@@ -279,6 +280,7 @@ main {
   background: transparent;
   border: var(--border);
   border-color: var(--primary);
+  width: 100%;
   transition: 0.2s;
 }
 
@@ -295,6 +297,76 @@ main {
       color: var(--white);
     }
   }
+}
+
+.sidebar {
+  display: none;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  width: 20px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--secondary);
+  position: fixed;
+  top: 1rem;
+  right: 1rem; 
+
+}
+
+.sidebar.active {
+  right: 0; 
+}
+
+@media (max-width: 755px) {
+  .sidebar {
+    display: none; 
+    flex-direction: column;
+    background: var(--white);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 220px;
+    height: 100vh;
+    padding: var(--space-5);
+    box-shadow: var(--box-shadow);
+    gap: var(--space-4);
+  }
+
+  .sidebar.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navlist {
+    display: none;
+  }
+
+  .nav-btn-con {
+    display: none;
+  }
+
+  .sidebar .nav-btn-con {
+    display: flex;  
+    flex-direction: column;
+    gap: 1rem;
+    padding: var(--space-7);
+  }
+
 }
 
 .hero {
@@ -371,7 +443,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
+  width: clamp(70px, 15vw, 150px);
 }
 
 .carousel-para-over {
@@ -433,9 +505,9 @@ main {
   font-weight: var(--font-medium);
   color: var(--secondary);
 }
-
 .about-img {
-  width: 37.5rem;
+  width: 100%;
+  max-width: 37.5rem;
 }
 
 .solution {
@@ -445,6 +517,11 @@ main {
   align-items: center;
   gap: var(--space-7);
   padding: 0px var(--space-7);
+  flex-wrap: wrap;
+}
+
+.solution .solution-con-item {
+  flex: 1 1 400px;
 }
 
 .solution-title {
@@ -474,7 +551,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: var(--space-5);
-  padding: 2.5rem 6.25rem;
+  padding: 2.5rem clamp(1rem, 5vw, 6.25rem);
   border-radius: var(--radius-lg);
   background-color: var(--primary-muted-bg);
 }
@@ -485,6 +562,7 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: var(--space-7);
+  flex-wrap: wrap;
 }
 
 .solution-subtitle p {
@@ -495,31 +573,36 @@ main {
   font-size: var(--section-title);
   font-weight: var(--font-bold);
   color: var(--secondary);
+  text-align: center;
 }
 
 .solution-subtitle-explore {
   font-size: var(--body-lg);
   font-weight: var(--font-medium);
   color: var(--secondary-muted);
+  text-align: center;
 }
 
 .cardview {
   display: flex;
   gap: var(--space-5);
   padding: var(--space-3);
+  flex-wrap: wrap;
 }
 
-.card {
+.card{
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
   background-color: var(--white);
   border-radius: var(--radius-md);
   padding: var(--space-5);
+  flex: 1 1 300px;
 }
 
+
 .card-img {
-  width: 60px;
+  width: clamp(30px, 10vw, 60px);
   padding: var(--space-1);
   background-color: hsl(205, 100%, 85%);
   border-radius: var(--radius-md);
@@ -545,10 +628,12 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .services-img {
-  width: 62.5rem;
+  width: 100%;
+  max-width: 62.5rem;
 }
 
 .services-reports {
@@ -585,6 +670,16 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.price .price-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 300px;
 }
 
 .affordable-para {
@@ -1021,6 +1116,7 @@ footer {
   display: flex;
   align-items: center;
   gap: var(--space-1);
+
 }
 
 .copyright-icon {

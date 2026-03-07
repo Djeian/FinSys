@@ -6,6 +6,20 @@
 const PageScripts = {
     main: function() {
         debug("Page", "Main");
+
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('sidebar-close');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            hamburger.style.display = 'none';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            hamburger.style.display = 'block';
+        });
     },
 
     signUp: function() {
@@ -302,3 +316,10 @@ document.addEventListener("DOMContentLoaded", function () {
         PageScripts[page]();
     } 
 });
+
+// wag na muna to, tapusin ko muna buong layout
+function togglePasswordVisibility(seeIcon) {
+
+}
+
+ 
