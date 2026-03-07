@@ -41,3 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
 function togglePasswordVisibility(seeIcon) {
 
 }
+
+  const hamburger = document.getElementById('hamburger');
+  const sidebar = document.getElementById('sidebar');
+  const closeBtn = document.getElementById('sidebar-close');
+
+  hamburger.addEventListener('click', () => {
+    sidebar.classList.add('active');
+    hamburger.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    hamburger.style.display = 'block';
+  });
