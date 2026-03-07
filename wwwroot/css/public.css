@@ -198,6 +198,16 @@ select {
   color: var(--danger);
 }
 
+/* SHOW */
+.show {
+    display: flex !important;
+}
+
+/* MODAL LOG OUT ICON DISPLAY */
+.hidden {
+    display: none !important;
+}
+
 body {
   height: 100dvh;
   display: flex;
@@ -261,6 +271,8 @@ main {
 }
 
 .primary-btn {
+  display: flex;
+  justify-content: center;
   background: var(--accent);
   border: none;
   border-radius: var(--radius-md);
@@ -268,6 +280,7 @@ main {
 }
 
 .primary-btn a {
+  width: max-content;
   font-size: var(--body-md);
   font-weight: var(--font-semi-bold);
 }

@@ -50,6 +50,7 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+app.MapControllers(); 
 
 // THIS HANDLE THE AREAS ROUTING
 app.MapControllerRoute(

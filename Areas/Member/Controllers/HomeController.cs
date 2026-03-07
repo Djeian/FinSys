@@ -51,6 +51,19 @@ public class HomeController : Controller
     }
 
     [HttpPost]
+    public async Task<IActionResult> Search([FromBody] EmployeeSearchDto searchDto)
+    {
+        Console.WriteLine("Search :::::");
+
+        var res = await _context.Employees
+            .Where(e => (e.FirstName + " " + (e.MiddleName ?? "") + " " + e.LastName)
+            .Contains(searchDto.EmployeeName))
+            .ToListAsync();
+
+        return Ok(res);
+    }
+
+    [HttpPost]
     public async Task<IActionResult> RecordFinancialTransaction([FromBody] FinancialTransactionsDto transactionDto)
     {
         var transaction = new FinancialTransactions

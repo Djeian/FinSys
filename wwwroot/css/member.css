@@ -469,6 +469,10 @@ nav {
     padding: 0;
 }
 
+.nav-item  p {
+    width: max-content;
+}
+
 .nav-item a {
     width: 100%;
     display: flex;
@@ -1014,6 +1018,7 @@ main {
 }
 
 .employees-search {
+    position: relative;
     min-width: 100px;
     max-width: 400px;
     flex: 1;
@@ -1021,6 +1026,11 @@ main {
     display: flex;
     align-items: center;
     gap: var(--space-3);
+}
+
+.employees-search input {
+    width: 100%;
+    height: 100%;
     background: var(--white-muted-bg);
     border: var(--border);
     border-radius: var(--radius-md);
@@ -1033,6 +1043,10 @@ main {
 }
 
 .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 15px;
     display: flex; /* DIKO ALAM BAT GUMANA TO HAHA */
 }

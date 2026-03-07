@@ -334,7 +334,6 @@ TO-DO
     Graph ** Use D3.js  -- DONE
         Create a line graph for income and expense comparison 
 
-
-    employee search
-
     Fix text labels for graphs -- DONE
+    
+    employee search -- DONE

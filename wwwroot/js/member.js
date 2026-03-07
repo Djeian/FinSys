@@ -411,6 +411,17 @@ const PageScripts = {
         const address = document.getElementById("address");
 
 
+        // SEARCH EMPLOYEE
+        const search = document.getElementById("searchEmployee");
+
+        let timeout;
+        search.addEventListener("input", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                employeeSearch(search.value);
+            }, 200);
+        });
+
         // PHONE FORMAT
         phone.addEventListener("input", function (e) {
             e.target.value = formatNumber(e.target.value);
@@ -705,6 +716,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // FUNCTIONS
+async function employeeSearch(input) {
+    try {
+        const res = await fetch("/Member/Home/Search", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                EmployeeName: input
+            })
+        });
+
+        const data = await res.json();
+
+        debug("Employee", data);
+
+        const employeesCardCon = document.getElementById("employeesCardCon");
+        displayEmployees(data, employeesCardCon);
+    } catch (err) {
+        debug("Employee Display Error", err);
+    }
+}
+
 function displayLineGraphIncExpComp(lineGraph, data) {
      const legendItems = [
         { label: "Income", color: "#53AC7F" },  
