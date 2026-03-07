@@ -745,14 +745,16 @@ function displayLineGraphIncExpComp(lineGraph, data) {
         { label: "Expense", color: "#E64C4C" } 
     ];
 
-    const width = lineGraph.clientWidth;
+    const width = lineGraph.clientWidth - 20;
     const height = 400;
-    const margin = { top: 20, right: 40, bottom: 60, left: 60 };
+    const margin = { top: 20, right: 20, bottom: 60, left: 60 };
 
     const svg = d3.select(`#${lineGraph.id}`)
         .append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMinYMin meet");
 
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
@@ -824,11 +826,11 @@ function displayLineGraphIncExpComp(lineGraph, data) {
         .attr("r", 4)
         .attr("fill", "#E64C4C");
 
-    const itemSpacing = 90; 
+    const itemSpacing = Math.min(90, width / legendItems.length / 1.5);
     const circleRadius = 6;
     const totalLegendWidth = legendItems.length * itemSpacing;
     const legendY = chartHeight + margin.top + 40;
-    const legendX = (width - totalLegendWidth) / 2; 
+    const legendX = Math.max(0, (width - totalLegendWidth) / 2);
     const legend = svg.append("g")
             .attr("transform", `translate(${legendX}, ${legendY})`);
 
