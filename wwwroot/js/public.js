@@ -317,9 +317,5 @@ document.addEventListener("DOMContentLoaded", function () {
     } 
 });
 
-// wag na muna to, tapusin ko muna buong layout
-function togglePasswordVisibility(seeIcon) {
-
-}
 
  
