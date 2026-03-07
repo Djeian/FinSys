@@ -30,6 +30,10 @@
   --increase-s: 35%;
   --increase-l: 50%;
 
+  --danger-h: 0;
+  --danger-s: 75%;
+  --danger-l: 60%;
+
   --black: hsla(var(--black-h), var(--black-s), var(--black-l), var(--black-a));
   --black-muted-bg: hsla(var(--black-h), var(--black-s), var(--black-l), calc(var(--black-a) - 0.65));
   --black-shadow-color: hsla(var(--black-h), var(--black-s), var(--black-l), calc(var(--black-a) - 0.95));
@@ -44,6 +48,7 @@
   --accent-muted-bg: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
   --decrease: hsl(var(--decrease-h), var(--decrease-s), var(--decrease-l));
   --increase: hsl(var(--increase-h), var(--increase-s), var(--increase-l));
+  --danger: hsl(var(--danger-h), var(--danger-s), var(--danger-l));
 
   /* THIS IS BASED ON THE `font-size: 16px;` in `html{}`. wherein, 1rem == 16px  */
   --space-1: 0.25rem; /* 4px */
@@ -172,6 +177,25 @@ select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3Cpath fill='%230077CC' d='M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z'/%3E%3C/svg%3E");
   background-size: contain;
   pointer-events: none;
+}
+
+.error-input {
+  border-color: var(--danger) !important;
+}
+
+.error-tag {
+  font-size: var(--body-sm);
+  font-weight: var(--font-regular);
+  color: var(--danger) !important;
+}
+
+.access-denied {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--body-md);
+  font-weight: var(--font-medium);
+  color: var(--danger);
 }
 
 body {
@@ -887,8 +911,12 @@ main {
   gap: var(--space-2);
 }
 
+.see {
+  display: flex !important;
+}
+
 .see-eye {
-  display: flex;
+  display: none;
   cursor: pointer;
   width: 20px;
   position: absolute;
@@ -898,7 +926,7 @@ main {
 }
 
 .unsee-eye {
-  display: flex;
+  display: none;
   cursor: pointer;
   display: none;
   width: 20px;

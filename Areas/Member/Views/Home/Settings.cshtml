@@ -1,3 +1,4 @@
+@using System.Security.Claims
 @{
     // HEADER INFO
     ViewData["Title"] = "Settings";
@@ -15,8 +16,8 @@
             </div>
 
             <div class="user-header">
-                <p class="settings-user-name">Migz Reyes</p>
-                <p class="settings-user-role">Backend Developer</p>
+                <p class="settings-user-name">@User.FindFirstValue("FirstName") @User.FindFirstValue("LastName")</p>
+                <p class="settings-user-role">@User.FindFirstValue("Position")</p>
             </div>
         </div>
 
@@ -24,18 +25,18 @@
             <div class="user-info-description-start">
                 <div class="user-info-item">
                     <p class="settings-user-label">Email</p>
-                    <p>migz&#64;gmail.com</p>
+                    <p>@User.FindFirstValue("Email")</p>
                 </div>
 
                 <div class="user-info-item">
                     <p class="settings-user-label">Account Created</p>
-                    <p>2/12/2026</p>
+                    <p>@DateTime.Parse(User.FindFirstValue("CreatedAt")).ToString("MM/dd/yyyy")</p>
                 </div>
 
                 <div class="user-info-item">
                     <p class="settings-user-label">Role</p>
                     <div class="user-role-con">
-                        <p>Admin</p>
+                        <p>@User.FindFirstValue("Role")</p>
                     </div>
                 </div>
             </div>
@@ -43,12 +44,12 @@
             <div class="user-info-description-end">
                 <div class="user-info-item">
                     <p class="settings-user-label">Phone</p>
-                    <p>+63 (09) 94 875 1567</p>
+                    <p>+63 (09) @User.FindFirstValue("Phone")</p>
                 </div>
 
                 <div class="user-info-item">
                     <p class="settings-user-label">Address</p>
-                    <p>Grand Centennial Homes, San Sebastian, Kawit, Cavite</p>
+                    <p>@User.FindFirstValue("Country")</p>
                 </div>
             </div>
         </div>

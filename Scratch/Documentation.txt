@@ -60,7 +60,6 @@ GIT COMMIT (Procedure) ---------------------------------------------------------
         origin https//github.com/username/yourProject.git
         origin https//github.com/username/yourProject.git
 
-
 8. Push to github
 
     - In the terminal type
@@ -68,6 +67,65 @@ GIT COMMIT (Procedure) ---------------------------------------------------------
         git branch -M main
 
         git push -u origin main
+
+
+EF CORE IMPLEMENTATION
+    ** Always add the name convention package before initial migration
+
+    1st - Install the EFCore package
+
+        dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+        dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+        dotnet add package Pomelo.EntityFrameworkCore.MySql ** If using MySql
+
+        dotnet add package EFCore.NamingConventions ** For table and column name translate from pascal to snake_case 
+
+    2nd - Create your model class, put it inside the `Model` folder
+
+        public class User
+        {
+            public int Id { get; set; }   // Primary key
+            public string Name { get; set; }
+            public string Email { get; set; }
+        }
+
+    3rd - Add a DbContext.cs file inside Data folder 
+
+        using Microsoft.EntityFrameworkCore;
+
+        public class AppDbContext : DbContext
+        {
+            public AppDbContext(DbContextOptions<AppDbContext> options)
+                : base(options)
+            {
+            }
+
+            public DbSet<User> Users { get; set; }
+        }
+
+    4th - Add a connection string inside appsettings.Development.json
+
+        {
+            "ConnectionStrings": {
+                "DefaultConnection": "Server=localhost;Database=MyAppDb;Trusted_Connection=True;"
+            }
+        }
+
+    5th - Register Ef Core in program.cs 
+
+        builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(
+                builder.Configuration.GetConnectionString("DefaultConnection")
+            )
+            .UseSnakeCaseNamingConvention() // FOR SNAKE_CASE NAMING CONVENTION
+            ); 
+
+    ** The package EFCore.NamingConventions automatically change the column and table name
+
+    dotnet ef migrations add NameNgMigration
+
+    dotnet ef database update
 
 REALIZATION
     
@@ -206,3 +264,77 @@ TO-DO
     use snake_case for cross compatibility especially for linux
 
     *** use EFCore.NamingConventions package
+
+2/28/2026 ---
+
+    Make sign up and log in work -- DONE 
+
+    create a dto for clients -- DONE 
+
+    JavaScript request?
+
+3/1/2026 ---
+
+    fix sign up validation -- DONE
+    
+    User Session -- DONE
+
+    Log in functionality -- DONE
+
+    Business registration -- DONE
+
+3/3/2026 ---
+
+    Add, delete, and edit employees -- DONE
+
+    Email and phone checker if it already exist  
+
+3/4/2026 ---
+
+    Add, delete, and edit financial transactions -- DONE
+
+    TO-DO Fix company logo padding -- DONE
+
+    Make company name show using c# not js 
+
+3/5/2026 ---
+
+    Make dashboard functional -- DONE
+
+    Calculate the total income by getting all of the data that has `income` same with expense
+
+    Divide the expense by income to get the percentage of expense
+
+    To get the net profit, just subtract the total income to expense
+
+    Calculate it server-side????
+
+    Always separate functions based on its uses, easier to understand, maintain, scale, and debug
+
+    Always calculate on the server-side and display on JS only
+
+    if expense is less than income (expense < 100%) display arrow down, if expense is greater than income (expense > 100%`) display arrow up. Opposite for income
+
+
+    FOCUS ON SCALABILITY!
+
+
+3/6/2026 --- 
+
+    Pukinang ina iba pa pala ang MySQL server sa workbench ahahahah, pinaka importante si MySQL server.
+
+    Install MySQL Installer -- DONE
+
+    Fix description in financial transaction Table, too long paragrpaphs -- DONE
+
+    Fix phone, add +63 -- DONE
+
+    Add a default logo -- DONE
+
+    Graph ** Use D3.js  -- DONE
+        Create a line graph for income and expense comparison 
+
+
+    employee search
+
+    Fix text labels for graphs -- DONE
