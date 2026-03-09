@@ -98,7 +98,7 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   scroll-snap-align: center;
-  font-size: clamp(7px, 2vw, 16px);
+  font-size: clamp(14px, 2vw, 16px);
   font-family: "Inter", sans-serif;
 }
 
@@ -230,8 +230,19 @@ main {
   flex: 1;
 }
 
-.main-subsection {
-  min-height: 100vh;
+.hero, .main-subsection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-7);
+}
+
+@media (max-width: 1065px) {
+  .hero, .main-subsection {
+    min-height: clamp(840px, 80vh, 700px);
+  }
+
+
 }
 
 .nav-list-con {
@@ -383,7 +394,6 @@ main {
 }
 
 .hero {
-  height: 90vh;
   display: flex;
   flex-direction: column;
 }
@@ -392,7 +402,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3.75rem 4.6875rem;
+  padding: clamp(2rem, 5vw, 3.75rem) clamp(1.5rem, 5vw, 4.6875rem);
   background-color: var(--primary);
   gap: var(--space-7);
 }
