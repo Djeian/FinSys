@@ -96,7 +96,7 @@ public class AccountController : Controller
         await _context.SaveChangesAsync();
 
         // SEND AN EMAIL
-        await _email.SendEmailAsync("johnmigzreyes0@gmail.com", "Reset Password", $"Your OTP code is {otp}"); // CHANGE THE SEND TO
+        await _email.SendEmailAsync(emailDto.Email, "Reset Password", $"Your OTP code is {otp}"); // CHANGE THE SEND TO
 
         // SESSION
         HttpContext.Session.SetString("Email", emailDto.Email);
