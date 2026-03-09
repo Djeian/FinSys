@@ -14,19 +14,25 @@ const PageScripts = {
     main: function() {
         debug("Page", "Main");
 
+        // MEDIA QUERY FOR HAMBURGER
+        const screen = window.matchMedia("(max-width: 755px)");
+        
         const hamburger = document.getElementById('hamburger');
         const sidebar = document.getElementById('sidebar');
         const closeBtn = document.getElementById('sidebar-close');
 
-        hamburger.addEventListener('click', () => {
-            sidebar.classList.add('active');
-            hamburger.style.display = 'none';
-        });
+        if (screen) {
+            hamburger.addEventListener('click', () => {
+                sidebar.classList.add('active');
+            });
 
-        closeBtn.addEventListener('click', () => {
+            closeBtn.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        } else {
             sidebar.classList.remove('active');
-            hamburger.style.display = 'block';
-        });
+            hamburger.style.display = 'none';
+        }
     },
 
     signUp: function() {

@@ -220,6 +220,7 @@ body {
 }
 
 nav {
+  min-height: 85px;
   width: 100%;
   position: fixed;
   background: var(--white);
@@ -234,19 +235,33 @@ main {
   flex: 1;
 }
 
-.hero, .main-subsection {
+.hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: var(--space-7);
+  min-height: 100vh;
+}
+
+.main-subsection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 130px;
+}
+
+.main-subsection-item {
+  width: 100%;
 }
 
 @media (max-width: 1065px) {
-  .hero, .main-subsection {
-    min-height: clamp(840px, 80vh, 700px);
+  .main-subsection {
+    min-height: clamp(500px, 70vh, 840px);
   }
 
-
+  .solution {
+    height: auto !important; 
+  }
 }
 
 .nav-list-con {
@@ -342,12 +357,13 @@ main {
 
 .hamburger {
   display: none;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
   color: var(--secondary);
-  position: fixed;
   top: 1rem;
   right: 1rem; 
 
@@ -377,7 +393,7 @@ main {
   }
 
   .hamburger {
-    display: block;
+    display: flex;
   }
 
   .navlist {
@@ -395,11 +411,6 @@ main {
     padding: var(--space-7);
   }
 
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
 }
 
 .banner {
@@ -538,13 +549,13 @@ main {
 }
 
 .solution {
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: var(--space-7);
   padding: 0px var(--space-7);
-  flex-wrap: wrap;
 }
 
 .solution .solution-con-item {
@@ -804,6 +815,7 @@ main {
 
 /* SIGN UP */
 .nav-acc {
+  min-height: auto;
   position: relative;
   box-shadow: none;
   display: flex;
