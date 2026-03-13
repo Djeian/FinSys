@@ -43,6 +43,22 @@ const PageScripts = {
         let startX;
         let scrollLeft;
 
+        function startAutoSlide(){
+            autoSlide = setInterval(() => {
+
+                index++;
+                if(index >= items.length) index = 0;
+
+                const itemWidth = items[0].offsetWidth;
+
+                slider.scrollTo({
+                    left: itemWidth * index,
+                    behavior: "smooth"
+                });
+
+            }, 3000);
+        }
+
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
             slider.classList.add('active'); 
@@ -79,6 +95,8 @@ const PageScripts = {
             });
         }, 3000);
             },
+
+            
 
     signUp: function() {
         debug("Page", "Sign up");

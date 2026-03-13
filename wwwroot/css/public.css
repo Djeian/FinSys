@@ -744,7 +744,7 @@ main {
 }
 
 .affordable-para {
-  font-size: var(--section-title);
+  font-size: var(--body-xl);
   font-weight: var(--font-bold);
   color: var(--secondary);
 }
