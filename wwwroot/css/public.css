@@ -646,6 +646,15 @@ main {
   border-radius: var(--radius-md);
 }
 
+.card-title {
+  font-weight: var(--font-semi-bold);
+}
+
+.transaction-icon svg path{
+  transform: translateX(3px);
+  fill: none;
+}
+
 .services {
   display: flex;
   flex-direction: column;
@@ -753,7 +762,7 @@ main {
 }
 
 .affordable-para {
-  font-size: var(--body-xl);
+  font-size: var(--section-title);
   font-weight: var(--font-bold);
   color: var(--secondary);
 }
