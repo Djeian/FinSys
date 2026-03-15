@@ -42,10 +42,10 @@ const PageScripts = {
         let isDown = false;
         let startX;
         let scrollLeft;
+        let autoSlide;
 
         function startAutoSlide(){
             autoSlide = setInterval(() => {
-
                 index++;
                 if(index >= items.length) index = 0;
 
@@ -55,15 +55,19 @@ const PageScripts = {
                     left: itemWidth * index,
                     behavior: "smooth"
                 });
-
             }, 3000);
+        }
+
+        function stopAutoSlide(){
+            clearInterval(autoSlide);
         }
 
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
-            slider.classList.add('active'); 
+            slider.classList.add('active');
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
+            stopAutoSlide();
         });
 
         slider.addEventListener('mouseleave', () => {
@@ -74,27 +78,36 @@ const PageScripts = {
         slider.addEventListener('mouseup', () => {
             isDown = false;
             slider.classList.remove('active');
+            startAutoSlide();
         });
 
         slider.addEventListener('mousemove', (e) => {
             if(!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 1; 
+            const walk = (x - startX) * 1;
             slider.scrollLeft = scrollLeft - walk;
         });
 
-        setInterval(() => {
-            index++;
-            if(index >= items.length) index = 0;
+        // TOUCH DRAG (Mobile)
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            stopAutoSlide();
+        });
 
-            const itemWidth = items[0].offsetWidth; 
-            slider.scrollTo({
-                left: itemWidth * index,
-                behavior: "smooth"
-            });
-        }, 3000);
-            },
+        slider.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        slider.addEventListener('touchend', () => {
+            startAutoSlide();
+        });
+
+        startAutoSlide();
+                    },
 
             
 
