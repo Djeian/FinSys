@@ -410,6 +410,13 @@ main {
     gap: 1rem;
     padding: var(--space-7);
   }
+  .solution-subtitle-innovative {
+    text-align: center !important;
+  }
+
+  .solution-subtitle-explore {
+    text-align: center !important;
+  }
 
 }
 
@@ -611,14 +618,14 @@ main {
   font-size: var(--section-title);
   font-weight: var(--font-bold);
   color: var(--secondary);
-  text-align: center;
+  text-align: left;
 }
 
 .solution-subtitle-explore {
   font-size: var(--body-lg);
   font-weight: var(--font-medium);
   color: var(--secondary-muted);
-  text-align: center;
+  text-align: right;
 }
 
 .cardview {
@@ -647,6 +654,7 @@ main {
 }
 
 .card-title {
+  font-size: var(--body-lg);
   font-weight: var(--font-semi-bold);
 }
 
