@@ -692,10 +692,11 @@ public class HomeController : Controller
 
         var expenses = fsLastMonth
             .Where(t => t.Type == "Expense")
+            .GroupBy(t => t.Category)
             .Select(t => new
             {
-                name = t.Category,
-                amount = t.Amount
+                name = t.Key,
+                amount = t.Sum(x => x.Amount)
             })
             .ToList();
 
@@ -727,10 +728,11 @@ public class HomeController : Controller
 
         var assets = await _context.Assets
             .Where(a => a.CompanyId == companyId)
+            .GroupBy(a => a.Category)
             .Select(a => new
             {
-                category = a.Category,
-                amount = a.Amount
+                category = a.Key,
+                amount = a.Sum(x => x.Amount)
             })
             .ToListAsync();
         
